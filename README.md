@@ -13,8 +13,17 @@ We should implement a persistence repository for the data. Right now, there is o
 simply create a new repo that implements ExchangeRepoInterface, as I did in https://github.com/x1m3/exchangerate_api/blob/master/src/repositories/ExchangeRepoInMemory.php
 
 
-To run the tests, first do composer install.
+To run the tests, first do a 
+```
+composer install
+```
 
-Then run 
+
+Then run
+```
 php vendor\phpunit\phpunit\phpunit 
-if running php in local. You could also use the dockers provided. I didn't used it, sorry for including. Just copied from a standar template I usually use for php.
+```
+if running php in local. 
+
+
+You could also use the dockers provided. I didn't used it, sorry for including. Just copied from a standar template I usually use for php.
