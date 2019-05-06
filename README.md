@@ -21,7 +21,7 @@ composer install
 
 Then run
 ```
-php vendor\phpunit\phpunit\phpunit 
+php vendor/phpunit/phpunit/phpunit 
 ```
 if running php in local. 
 
