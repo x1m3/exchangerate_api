@@ -26,37 +26,24 @@ class Exchanger implements ExchangeRateInterface
             return;
         }
 
-        /*
-        $rateEURToFrom = $this->getExchangeRateFromTo("EUR", $currencyFrom);
-        if (isset($rateEURToFrom)) {
-            $this->repo[$currencyTo] = new ExchangeRate($currencyTo, $rateEURToFrom->rate() * $rate);
-            $this->repo->setEURTo()
-            return;
-        }
-
-        $rateEURToTo = $this->getExchangeRateFromTo($currencyTo, "EUR");
-        if (isset($rateEURToTo)) {
-            $this->repo[$currencyTo] = new ExchangeRate($currencyTo, $rateEURToTo->rate() / $rate);
-            return;
-        }
-        */
         throw new \Exception("Cannot update Exchange rate. One of the currencies must be EUR.");
     }
 
     public function getExchangeRatesFrom(string $currency): array
     {
-
         $exchanges = [];
         if ($currency == "EUR") {
             $exchanges = $this->repo->getAllFromEUR();
         } else {
-
             $euroToOthesExchange = $this->repo->getAllFromEUR();
+            $euroToCurrencyRate = ($this->getExchangeRateFromTo($currency, "EUR"))->rate();
             foreach ($euroToOthesExchange as $exchange) {
                 if ($exchange->ID() === $currency) {
                     foreach ($euroToOthesExchange as $localExchange) {
-                        if ($localExchange->ID() === $currency) {
-                            $exchanges [] = new ExchangeRate("EUR", 1 / $localExchange->rate());
+                        if ($currency==$localExchange->ID()) {
+                            $exchanges [] = new ExchangeRate("EUR", 1/ $localExchange->rate());
+                        }else {
+                            $exchanges [] = new ExchangeRate($localExchange->ID(), $euroToCurrencyRate * $localExchange->rate());
                         }
                     }
                 }
@@ -74,7 +61,7 @@ class Exchanger implements ExchangeRateInterface
         } elseif ($currencyTo == "EUR") {
             $r1 = $this->repo->getFromEUR($currencyFrom);
             return new ExchangeRate($currencyTo, 1 / $r1->rate());
-        }else {
+        } else {
             $r1 = $this->repo->getFromEUR($currencyFrom);
             $r2 = $this->repo->getFromEUR($currencyTo);
             if (is_null($r1) || is_null($r2)) {

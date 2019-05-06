@@ -6,13 +6,13 @@ use ExchangeRate\entities\ExchangeRate;
 use ExchangeRate\model\ExchangeRateInterface;
 
 class GetExchangeRateFromToCommand {
-    private $repo;
+    private $exchanger;
 
     public function __construct(ExchangeRateInterface $repo) {
-        $this->repo = $repo;
+        $this->exchanger = $repo;
     }
 
     public function run(string $currencyFrom, $currencyTo): ExchangeRate{
-        return $this->repo->getExchangeRateFromTo($currencyFrom, $currencyTo);
+        return $this->exchanger->getExchangeRateFromTo($currencyFrom, $currencyTo);
     }
 }

@@ -12,7 +12,6 @@ class GetExchangeRateFromToCommandTest extends TestCase
 {
     private $command;
 
-
     public function setUP() {
 
         $repo = new Exchanger(new ExchangeRepoInMemory());
