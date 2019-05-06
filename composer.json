@@ -1,0 +1,15 @@
+{
+    "name": "x1m3/exchange_rate",
+    "description": "Exchange rate api demo",
+    "autoload": {
+        "psr-4": {
+            "ExchangeRate\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}

@@ -1,0 +1,8 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="exchangerate">
+            <directory>test/</directory>
+            <directory>test/entities</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
