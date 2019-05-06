@@ -27,7 +27,8 @@ Similar to the second endpoint, this will be usefull to update multiple currenci
 ## Examples:
 
 1. Add or update the exchange rate between EUR to USD
-```PUT /exchangerate/EUR/USD
+```
+PUT /exchangerate/EUR/USD
 Request Body : {"rate":1.12}
 Response Body : {"id1":"EUR, "id2:"USD", "rate":1.12}
 ```
