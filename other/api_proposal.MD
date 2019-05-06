@@ -44,7 +44,7 @@ Response Body:{"id1":"EUR, "id2:"USD", "rate":1.12}
 ```
 GET /exchangerate/GBP
 Status: 200
-Response body: [ {"id1":"GPB, "id2:"EUR", "rate":1.23}, {"id1":"GPB, "id2:"USD", "rate":1.23}, {"id1":"GPB, "id2:"ARS", "rate":1.23}, .... ]
+Response body: [ {"id1":"GPB, "id2:"EUR", "rate":1.23}, {"id1":"GPB", "id2:"USD", "rate":1.23}, {"id1":"GPB, "id2:"ARS", "rate":1.23}, .... ]
 ```
 
 4. Update to exchange rates from EUR to USD and GBP
